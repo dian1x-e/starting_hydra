@@ -1,3 +1,24 @@
+//lamp
+// 1: generate into o2 (feedback base)
+src(o0)
+  .modulate(noise(2), 0.05)
+  .blend(shape(6), 0)          // base hexagon structures
+  .blend(voronoi(4).shift(0.5), 0.2)  
+  .out(o2)
+
+//  2: process o2 and send to screen
+src(o2)
+  
+  .scale(() => 1 + (Math.sin(time * 0.5) * 0.05))  // smooth breathing motion
+osc(4, 0.1, 1.2)           //.diffosc(4, 0.1, 1.2) subtle moving interference texture
+  .brightness(0.2)
+  .contrast(1,2)
+  .saturate(0.7)
+  .out()
+
+speed = 2
+
+LAMP 2
 // pass 1: generate into o2 (feedback base)
 src(o0)
   .modulate(noise(2), 0.05)
