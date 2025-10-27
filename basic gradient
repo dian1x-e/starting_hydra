@@ -1,0 +1,14 @@
+// by @bugz_____
+osc(10, 0.9, 30)
+	.color(0, 0.7, 0.007)
+	.add(osc(45, 0.3, 50)
+		.color(0.9, 0.9, 0.9)
+		.rotate(0.36)
+)
+	.scrollX(9)
+	.repeatX(4)
+	.repeatY(2)
+  .invert(() => (Math.sin(time * 2) > 0.03 ? 1 : 0))
+	.modulate(osc(0.151, -0.112, 300))
+	.scale(5)
+	.out();
